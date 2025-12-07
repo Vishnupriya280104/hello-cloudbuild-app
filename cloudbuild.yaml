@@ -1,26 +1,8 @@
 steps:
-- id: Test
-  name: python:3.7-slim
-  entrypoint: bash
+- name: 'python:3.7-slim'
+  id: 'Simple step'
+  entrypoint: 'bash'
   args:
-  - -c
+  - '-c'
   - |
-    pip install flask
-    python -m unittest
-
-- id: Build
-  name: gcr.io/cloud-builders/docker
-  args:
-  - build
-  - -t
-  - us-central1-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild:$SHORT_SHA
-  - .
-
-- id: Push
-  name: gcr.io/cloud-builders/docker
-  args:
-  - push
-  - us-central1-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild:$SHORT_SHA
-
-images:
-- us-central1-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild:$SHORT_SHA
+    echo "Hello from Cloud Build"
