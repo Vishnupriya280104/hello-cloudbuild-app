@@ -1,3 +1,0 @@
-git remote remove google
-git remote add google https://github.com/Vishnupriya280104/hello-cloudbuild-app
-git push -u google master
